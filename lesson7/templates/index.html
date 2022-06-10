@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+Главная страница
+{% endblock %}
+{% block style %}
+	{% include "includes/inc-style.html" %}
+{% endblock %}
+{% block menu %}
+	{% include "includes/inc-menu.html" %}
+{% endblock %}
+{% block body %}
+	<div>
+		<a href="/category-add/">Создать новую категорию</a>
+	</div>
+	<div>
+		<h1>Список существующих категорий</h1>
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span>Количество курсов: {{item.course_count()}}</span>
+			<a href="/courses-list/?id={{item.id}}">Показать курсы</a>
+        </li>
+        {% endfor %}
+	</div>
+{% endblock %}
