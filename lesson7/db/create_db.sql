@@ -1,0 +1,13 @@
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS student;
+CREATE TABLE student (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, name VARCHAR (32));
+
+DROP TABLE IF EXISTS person;
+CREATE TABLE person (idperson INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+                    firstname VARCHAR (100),
+                    lastname VARCHAR (100));
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
